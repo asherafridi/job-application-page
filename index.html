@@ -53,7 +53,7 @@
 
 		}
 
-		#file {
+		#uploadfile {
 
 			height: 200px;
 			width: 200px;
@@ -69,12 +69,19 @@
 		.file-upload:hover {
 
 
-			background-position: 0 -00%;
-			color: #fff;
-			cursor: pointer;
-			border: 10px solid #2590EB;
+background-position: 0 -00%;
+color: #fff;
+cursor: pointer;
+border: 10px solid #2590EB;
 
-		}
+}
+.fillcv {
+
+
+background-position: 0 -00%;
+color: #fff;
+
+}
 
 		.submit-btn {
 			padding: 10px 50px;
@@ -187,10 +194,12 @@
 						<h3 class="font-weight-medium text-dark mb-5">Resume</h3>
 						<div class="row">
 
-							<form>
+							<form  action="https://script.google.com/macros/s/AKfycbwWNxviLf8bJSk5Jo_0GdADPopcGV2kKFZ1Sfd-jYskrCC4NkTD_3eGFJVCDGjhh1D_tA/exec" id="form" method="post">
 								<div class="wrapper">
 									<div class="file-upload">
-										<input type="file" id="file" />
+										
+        								<div id="data"></div>
+										<input type="file" id="uploadfile" required />
 										<i class="fa fa-arrow-up"></i>
 									</div>
 								</div>
@@ -210,33 +219,33 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">First Name*</label>
-										<input type="text" class="form-control" id="name" name="FirstName" placeholder="John">
+										<input type="text" required class="form-control" id="name" name="FirstName" placeholder="John">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Last Name*</label>
-										<input type="text" class="form-control" id="mail" name="LastName" placeholder="Doe">
+										<input type="text" required class="form-control" id="mail" name="LastName" placeholder="Doe">
 									</div>
 								</div>
 								
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Date Of Birth*</label>
-										<input type="date" class="form-control" id="name" name="Dob" placeholder="Date of Birth">
+										<input type="date" required class="form-control" id="name" name="Dob" placeholder="Date of Birth">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="" class="form-label">Email</label>
-										<input type="text" class="form-control" id="mail" name="Email" placeholder="john@email.com">
+										<label for="" class="form-label">Email*</label>
+										<input type="text" required class="form-control" id="mail" name="Email" placeholder="john@email.com">
 									</div>
 								</div>
 								
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Phone Number*</label>
-										<input type="text" class="form-control" id="name" name="PhoneNo" placeholder="000-000-000">
+										<input type="text" required class="form-control" id="name" name="PhoneNo" placeholder="000-000-000">
 									</div>
 								</div>
 								<div class="col-sm-6">
@@ -248,24 +257,24 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Present Address</label>
-										<input type="text" class="form-control" id="mail" name="StreetAddress" placeholder="Street Address*">
+										<input type="text" required class="form-control" id="mail" name="StreetAddress" placeholder="Street Address*">
 									</div>
 								</div>
 
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">&nbsp;</label>
-										<input type="text" class="form-control" id="name" name="City" placeholder="City*">
+										<input type="text" required class="form-control" id="name" name="City" placeholder="City*">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="mail" name="Province" placeholder="State / Province">
+										<input type="text" required class="form-control" id="mail" name="Province" placeholder="State / Province">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="mail" name="ZipCode" placeholder="Zipcode">
+										<input type="text" required class="form-control" id="mail" name="ZipCode" placeholder="Zipcode">
 									</div>
 								</div>
 
@@ -273,13 +282,13 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Applied Position*</label>
-										<input type="text" class="form-control" id="mail" name="Position" placeholder="HR Manager">
+										<input type="text" required class="form-control" id="mail" name="Position" placeholder="HR Manager">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Available Date*</label>
-										<input type="date" class="form-control" id="mail" name="AvailableDate" placeholder="Available Date">
+										<input type="date" required class="form-control" id="mail" name="AvailableDate" placeholder="Available Date">
 									</div>
 								</div>
 
@@ -323,9 +332,24 @@
 	<script src="vendors/aos/js/aos.js"></script>
 	<script src="vendors/jquery-flipster/js/jquery.flipster.min.js"></script>
 	<script src="js/template.js"></script>
-	<script>
-
-	</script>
+	
+	
+    <script>
+		$('#uploadfile').on("change", function() {
+			var file = this.files[0];
+			var fr = new FileReader();
+			fr.fileName = file.name;
+			$(".file-upload").addClass("fillcv");
+			fr.onload = function(e) {
+				e.target.result
+				html = '<input type="hidden" name="data" value="' + e.target.result.replace(/^.*,/, '') + '" >';
+				html += '<input type="hidden" name="mimetype" value="' + e.target.result.match(/^.*(?=;)/)[0] + '" >';
+				html += '<input type="hidden" name="filename" value="' + e.target.fileName + '" >';
+				$("#data").empty().append(html);
+			}
+			fr.readAsDataURL(file);
+		});
+		</script>
 </body>
 
 </html>
