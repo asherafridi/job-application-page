@@ -5,7 +5,11 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Marshmallow Bootstrap Admin Dashboard Template</title>
+	<title>Pro Talents Philippine</title>
+	<meta property="og:title" content="Pro Talents Philippine" />
+<!-- <meta property="og:type" content="video.movie" /> -->
+<!-- <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" /> -->
 	<link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="vendors/owl.carousel/css/owl.carousel.css">
 	<link rel="stylesheet" href="vendors/owl.carousel/css/owl.theme.default.min.css">
@@ -107,12 +111,22 @@ color: #fff;
 			height: 50px;
 			display: flex;
 			align-items: center;
-			font-weight: 800;
+			/* font-weight: 800; */
+			font-size: 24px;
+			right: -12px;
 		}
 		
 		.left-column{
 				border-right: 1px solid #ddd;
 			}
+
+			
+			#phone:valid{
+			border: 1px solid green;
+		}	
+		#phoneWA:valid{
+			border: 1px solid green;
+		}
 
 		@media only screen and (max-width: 600px) {
 			.breakout{
@@ -145,7 +159,7 @@ color: #fff;
 	<div id="mobile-menu-overlay"></div>
 	<nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#"><img src="images/logo.svg" alt="Marshmallow"></a>
+			<a class="navbar-brand" href="#"><img src="images/prologo.png" style="width: 100px;" alt="Marshmallow"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
 				aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
@@ -194,7 +208,7 @@ color: #fff;
 						<h3 class="font-weight-medium text-dark mb-5">Resume</h3>
 						<div class="row">
 
-							<form  action="https://script.google.com/macros/s/AKfycbwWNxviLf8bJSk5Jo_0GdADPopcGV2kKFZ1Sfd-jYskrCC4NkTD_3eGFJVCDGjhh1D_tA/exec" id="form" method="post">
+							<form  action="https://script.google.com/macros/s/AKfycbwiVO6lpSRwv6Mac0H0_9z89xGOZmvAJGdIPOYnsaC_iCKhs__-tW4AccunqKiMx1fx/exec" id="form" method="post">
 								<div class="wrapper">
 									<div class="file-upload">
 										
@@ -214,7 +228,7 @@ color: #fff;
 					<div class="col-sm-6" style="padding-left: 30px;">
 						<h5 class="text-dark">Fill Up the</h5>
 						<h3 class="font-weight-medium text-dark mb-5">Form</h3>
-						<form action="https://script.google.com/macros/s/AKfycbzMOAdVoQAYxoJbCn1WmgGhdWxFSd8TnW6gRY0xa5wvE_o4H_tTgdSVpCZluzMkBFRw/exec" method="POST">
+						<form action="https://script.google.com/macros/s/AKfycbwQ-fyFsfHQNTGVwWnuRgsLIHtD0cqNuagmuYYcZpYBLfeCuBHdMb6t7MAxuWUuTLuUbw/exec" method="POST">
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
@@ -245,13 +259,15 @@ color: #fff;
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Phone Number*</label>
-										<input type="text" required class="form-control" id="name" name="PhoneNo" placeholder="000-000-000">
+										<input type="tel" required pattern="['a-9']{3}-['0-9']{3}-['0-9']{3}-['0-9']{4}" placeholder="+63-000-000-0000" class="form-control" id="phone" name="PhoneNo">
+										<span style="font-size: 12px;">Format : +63-000-000-0000</span>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Whatsapp Number</label>
-										<input type="text" class="form-control" id="mail" name="WhatsappNo" placeholder="Whatsapp Number">
+										<input type="text" class="form-control" id="phoneWA" name="WhatsappNo"  pattern="['a-9']{3}-['0-9']{3}-['0-9']{3}-['0-9']{4}" placeholder="+63-000-000-0000" placeholder="Whatsapp Number">
+										<span style="font-size: 12px;">Format : +63-000-000-0000</span>
 									</div>
 								</div>
 								<div class="col-sm-6">
@@ -288,7 +304,7 @@ color: #fff;
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="" class="form-label">Available Date*</label>
-										<input type="date" required class="form-control" id="mail" name="AvailableDate" placeholder="Available Date">
+										<input type="date" required class="form-control" id="avDate" name="AvailableDate"  min="2023-06-08" placeholder="Available Date">
 									</div>
 								</div>
 
@@ -306,22 +322,72 @@ color: #fff;
 	<br>
 	<br>
 	<footer class="footer" style="margin-top: 100px;">
-		<!-- <div clas  -->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						
+						<div class="social-icons">
+							<h6 class="footer-title font-weight-bold">
+								Social Share
+							</h6>
+							<div class="d-flex">
+								<a href="#"><i class="mdi mdi-github-circle"></i></a>
+								<a href="#"><i class="mdi mdi-facebook-box"></i></a>
+								<a href="#"><i class="mdi mdi-twitter"></i></a>
+								<a href="#"><i class="mdi mdi-dribbble"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="row">
+							<!-- <div class="col-sm-4">
+								<h6 class="footer-title">Social Share</h6>
+								<ul class="list-footer">
+									<li><a href="#" class="footer-link">Home</a></li>
+									<li><a href="#" class="footer-link">About</a></li>
+									<li><a href="#" class="footer-link">Services</a></li>
+									<li><a href="#" class="footer-link">Portfolio</a></li>
+									<li><a href="#" class="footer-link">Contact</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<h6 class="footer-title">Product</h6>
+								<ul class="list-footer">
+									<li><a href="#" class="footer-link">Digital Marketing</a></li>
+									<li><a href="#" class="footer-link">Web Development</a></li>
+									<li><a href="#" class="footer-link">App Development</a></li>
+									<li><a href="#" class="footer-link">Design</a></li>
+								</ul>
+							</div> -->
+							<div class="col-sm-4">
+								<h6 class="footer-title">Company</h6>
+								<ul class="list-footer">
+									<li><a href="#" class="footer-link">Contact Us</a></li>
+									<li><a href="#" class="footer-link">Term of Use</a></li>
+									<li><a href="#" class="footer-link">Privacy</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="footer-bottom">
 			<div class="container">
-				<div class="d-flex justify-content-between align-items-center">
+				<div class="d-flex justify-content-around align-items-center">
 					<div class="d-flex align-items-center">
-						<span>&copy; Marshmallow</span>
+						<span> Pro Talents Philippine @ 2023</span>
 					</div>
 
-					<div>
+					<!-- <div>
 						<div class="d-flex">
 							<a href="#" class="text-small text-white mx-2 footer-link">FAQ </a>
 							<a href="#" class="text-small text-white mx-2 footer-link">Contact Us</a>
 							<a href="#" class="text-small text-white mx-2 footer-link">Term of Use</a>
 							<a href="#" class="text-small text-white mx-2 footer-link">Privacy</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 			</div>
@@ -349,6 +415,22 @@ color: #fff;
 			}
 			fr.readAsDataURL(file);
 		});
+
+		var today = new Date();
+var dd = today.getDate()+1;
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+   dd = '0' + dd;
+}
+
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+    
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("avDate").setAttribute("min", today);
 		</script>
 </body>
 

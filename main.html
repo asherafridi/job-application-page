@@ -1,35 +1,24 @@
-
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Sample script for uploading file to Google Drive without authorization</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
-</head>
-
-<body>
-    <form action="https://script.google.com/macros/s/AKfycbwWNxviLf8bJSk5Jo_0GdADPopcGV2kKFZ1Sfd-jYskrCC4NkTD_3eGFJVCDGjhh1D_tA/exec" id="form" method="post">
-        Upload a file
-        <div id="data"></div>
-        <input name="file" id="uploadfile" type="file">
-        <input id="submit" type="submit">
-    </form>
-    <script>
-    $('#uploadfile').on("change", function() {
-        var file = this.files[0];
-        var fr = new FileReader();
-        fr.fileName = file.name;
-        fr.onload = function(e) {
-            e.target.result
-            html = '<input type="hidden" name="data" value="' + e.target.result.replace(/^.*,/, '') + '" >';
-            html += '<input type="hidden" name="mimetype" value="' + e.target.result.match(/^.*(?=;)/)[0] + '" >';
-            html += '<input type="hidden" name="filename" value="' + e.target.fileName + '" >';
-            $("#data").empty().append(html);
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #phone:valid{
+            border: 2px solid green;
         }
-        fr.readAsDataURL(file);
-    });
-    </script>
+        #phone:invalid{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label>Phone </label>
+        <input type="tel" id="phone" pattern="['0-9']{2}-['0-9']{2}-['0-9']{4}-['0-9']{3}" required>
+        <input type="submit">
+    </form>
 </body>
-
 </html>
